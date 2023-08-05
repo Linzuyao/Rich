@@ -4,16 +4,16 @@ from colorama import Fore
 
 
 class Command:
-    def __init__(self, role=None):
+    def __init__(self, role=None) -> None:
         self.role = role
 
-    def get_user_input(self):
+    def get_user_input(self) -> str:
         if self.role == "Q":
-            command = input(Fore.GREEN+">>>>>").strip().lower()
+            command = input(Fore.GREEN + ">>>>>").strip().lower()
         elif self.role == "A":
-            command = input(Fore.RED+">>>>>").strip().lower()
+            command = input(Fore.RED + ">>>>>").strip().lower()
         elif self.role == "J":
-            command = input(Fore.BLUE+">>>>>").strip().lower()
+            command = input(Fore.BLUE + ">>>>>").strip().lower()
         else:
             command = input(">>>>>").strip().lower()
         print(Fore.RESET, end="")
