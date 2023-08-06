@@ -8,18 +8,17 @@ class Command:
         self.role = role
 
     def get_user_input(self) -> str:
-        if self.role == "Q":
-            command = input(Fore.GREEN + ">>>>>").strip().lower()
-        elif self.role == "A":
-            command = input(Fore.RED + ">>>>>").strip().lower()
-        elif self.role == "J":
-            command = input(Fore.BLUE + ">>>>>").strip().lower()
-        else:
-            command = input(">>>>>").strip().lower()
+        choose_role_color = {
+            "Q": Fore.GREEN,
+            None: Fore.WHITE,
+            "A": Fore.RED,
+            "J": Fore.BLUE,
+        }
+        command = input(choose_role_color[self.role] + "$ ").strip().lower()
         print(Fore.RESET, end="")
         return command
 
 
 if __name__ == "__main__":
-    test = Command()
+    test = Command("A")
     print(test.get_user_input())
